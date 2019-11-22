@@ -1,0 +1,5 @@
+themes/
+public/
+.DS_Store
+*.sublime-project
+*.sublime-workspace
