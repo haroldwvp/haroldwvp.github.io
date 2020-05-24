@@ -442,7 +442,462 @@
   <script>
     $(document).foundation();
   </script>
+  <script><!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0, user-scalable=no" />
+  <meta content="Westlake Venture Partners" name="description" />
+  <title>Westlake Venture Partners</title>
+  <link rel="icon" href="https://www.westlakevp.com/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://www.westlakevp.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  <script src="js/vendor/custom.modernizr.js"></script>
+
   <script>
+    // When ready...
+    window.addEventListener("load",function() {
+      // Set a timeout...
+      setTimeout(function(){
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+      }, 0);
+    });
+  </script>
+
+  <style>
+  body {
+    background: #EC881D;
+    font-family: 'Lora', serif;
+  }
+
+  .top-bar {
+    background-color: #2c2c2c;
+  }
+  .top-bar.expanded {
+    background: #2c2c2c;
+  }
+  .top-bar.expanded .title-area {
+    background: #2c2c2c;
+  }
+  .top-bar.expanded .toggle-topbar a {
+    color: #2c2c2c;
+  }
+  .top-bar-section li a:not(.button) {
+    background: #2c2c2c;
+  }
+  .top-bar .toggle-topbar a {
+    font-weight:500;
+  }
+  .top-bar-section ul li > a {
+    font-weight:500;
+  }
+  .top-bar-section ul li.active > a {
+    background: #111111;
+  }
+  .top-bar-section li a:not(.button):hover {
+    background: #111111;
+  }
+  .top-bar.expanded .toggle-topbar a span {
+    -webkit-box-shadow: 0 10px 0 1px #3d3d3d, 0 16px 0 1px #3d3d3d, 0 22px 0 1px #3d3d3d;
+    box-shadow: 0 10px 0 1px #3d3d3d, 0 16px 0 1px #3d3d3d, 0 22px 0 1px #3d3d3d;
+  }
+  .top-bar.expanded .toggle-topbar a {
+    color: #aaaaaa;
+  }
+  .top-bar.expanded .toggle-topbar a span {
+    -webkit-box-shadow: 0 10px 0 1px #aaaaaa, 0 16px 0 1px #aaaaaa, 0 22px 0 1px #aaaaaa;
+    box-shadow: 0 10px 0 1px #aaaaaa, 0 16px 0 1px #aaaaaa, 0 22px 0 1px #aaaaaa;
+  }
+
+  .inline-list ul {
+    list-style-type: circle;
+  }
+  .inline-list > li {
+    float: left;
+    margin-left: 1.375em;
+    margin-right:;
+    width: 10em;
+    list-style-type: circle;
+    display: block;
+  }
+  .inline-list > li > * {
+    display: block;
+  }
+
+  .page-title {
+    font-family: inherit;
+    color: #EC881D;
+    border-bottom:1px solid #fff;
+  }
+
+  .team_name {
+    font-family: inherit;
+    color: #EC881D;
+  }
+
+  .bio {
+    font-family: inherit;
+    font-size: .8em;
+  }
+
+  .grid {
+    border: 1px solid #6e6e6e;
+    border-bottom: none;
+    border-right: none;
+    overflow: hidden;
+    background-color:rgba(255, 139, 34, 0.65);
+  }
+  .grid li {
+    border-bottom: 1px solid #6e6e6e;
+    border-right: 1px solid #6e6e6e;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 25%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    padding-left:10px !important;
+  }
+  .ie7 .grid li {
+    width: 19.9%;
+    padding-left:10px !important;
+  }
+  .grid li a {
+    display: block;
+  }
+  .grid img {
+    display: block;
+    height: auto;
+    border:0px !important;
+    width: 100%;
+    opacity: .85;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    filter: alpha(opacity=65);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .grid li:hover img {
+    opacity: 1;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+  }
+
+  .grid-sm {
+    border: 1px solid #6e6e6e;
+    border-bottom: none;
+    border-right: none;
+    overflow: hidden;
+    background-color:rgba(255, 139, 34, 0.65);
+  }
+  .grid-sm li {
+    border-bottom: 1px solid #6e6e6e;
+    border-right: 1px solid #6e6e6e;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 33.333%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    padding-left:10px !important;
+  }
+  .ie7 .grid-sm li {
+    width: 26.5%;
+    padding-left:10px !important;
+  }
+  .grid-sm li a {
+    display: block;
+  }
+  .grid-sm img {
+    display: block;
+    height: auto;
+    border:0px !important;
+    width: 100%;
+    opacity: .85;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    filter: alpha(opacity=65);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .grid-sm li:hover img {
+    opacity: 1;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+  }
+
+  #clients li:hover .original_img,  .ie7 #clients li:hover a img, .ie8 #clients li:hover a img {
+    opacity: 1;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+  }
+  #clients li:hover .grayscale_img {
+    opacity: 0;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  #clients .tile:hover, #clients .tile.active {
+    background: #EC881D;
+  }
+
+  .container {
+    background: #e8e8e8;
+    padding: 2em 1em;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="fixed">
+
+    <nav class="top-bar">
+      <ul class="title-area">
+        <div class="row">
+          <div class="small-12 large-12 columns">
+            <li class="name"></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+          </div>
+        </div>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="#home" onclick="jumpTo('#home');">Home</a></li>
+          <li><a href="#team" onclick="jumpTo('#team');">The Team</a></li>
+          <li><a href="#about" onclick="jumpTo('#about');">About Us</a></li>
+          <li><a href="#portfolio" onclick="jumpTo('#portfolio');">Our Portfolio</a></li>
+          <li><a href="#contact" onclick="jumpTo('#contact');">Contact Us</a></li>
+        </ul>
+      </section>
+
+    </nav>
+
+  </div>
+
+	<div class="row">
+    <div class="small-12 large-10 columns large-centered">
+      <div class="row container">
+          <div class="small-12 columns">
+<!--            <div class="row hide-for-medium-up" style="margin-bottom:1.5em;"> -->
+            <div class="row" id="home" style="margin-bottom:1.5em;">
+              <div class="small-8 large-4 columns text-left">
+                <img src="imgs/wvp-logo.png" no-border />
+              </div>
+              <div class="small-4 large-8 columns">
+
+              </div>
+            </div>
+
+            <div class="row" id="home">
+              <div class="small-12 large-12 columns">
+                <p> Westlake Venture Partners is a family office that invests in emerging companies.  Depending on the stage of the company and their needs, Westlake Venture Partners will vary the degree to which it takes a hands-on approach.  The principals invest their own capital, alongside a select group of industry pioneers, executives, and founders, all of whom are passionate about building great companies.   We help in a variety of ways, from hands-on management to capital investments.</p>
+                <p>We are invested in your success providing, where necessary:
+                  <div style="padding-left:2em;margin-top:-1em;">
+                    <ul class="disc">
+                      <li>Talent Acquisition and Team Building</li>
+                      <li>Assistance in venture capital and growth financing</li>
+                      <li>Management consulting and advice on:</li>
+                      <li style="list-style:none;padding-left:1em;">
+                        <ul class="inline-list" style="list-style-type:circle;">
+                          <li>Technology Strategy</li>
+                          <li>Product Strategy</li>
+                          <li>Financial Modeling</li>
+                          <li>Business Plan</li>
+                          <li>Customer Acqusition</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" id="team" style="padding-top:3.5em;">
+              <h3 class="page-title">The Team</h3>
+              <div class="small-12 large-6 columns">
+                <h4 class="team_name"> Ronald T. Burr</h4>
+                <img src="imgs/bio-ron.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
+                <p class="bio">Ronald is an accomplished technology executive with a focus on SaaS, Internet, Interactive Marketing and Digital Media. His perspective on companies is heavily influenced by his software engineering background and further shaped through his experience as an executive in both startups and large enterprises. “I believe the team is everything; People make the company; it’s critical to stay focused on culture and talent. Whether a company is old or young, most problems are ultimately overcome though building the right team”. Mr. Burr is a recognized industry pioneer having co-founded and NetZero (NASDAQ: UNTD) and taken it public with Goldman Sachs.<br /> <br />
+                Mr. Burr maintains active executive leadership roles while being a partner in WVP. Currently he is a General Manager at J2 Global (NASDAQ: JCOM). Over the past decade Mr. Burr has held senior leadership roles as Chief Executive Officer and Chief Product & Technology Officer for leading SaaS comapnies in the telecom and online education sectors.
+                </p>
+
+                <div style="margin-top:2em;"> </div>
+
+                <h4 class="team_name"> Marwan A. Zebian</h4>
+                <img src="imgs/bio-marwan.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
+                <p class="bio">Marwan A. Zebian is a Partner at Westlake Venture Partners. Mr. Zebian is an entrepreneur and technologist with 20+ years of experience. Known to us as “the idea man” and based in Lebanon, Mr. Zebian manages international investments for WVP. His career has spanned roles in many of the worlds largest companies to startups including Bank of America, NetZero, Sempra Energy, Admiral Ship Management and Impact Software. He received his degree in Computer Science from Beirut University.
+                </p>
+
+                <div style="margin-top:2em;"> </div>
+
+                <h4 class="team_name"> Stacy A. Haitsuka</h4>
+                <img src="imgs/bio-stacy.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
+                <p class="bio">Stacy A. Haitsuka is a Partner at Westlake Venture Partners. Mr. Haitsuka is an entrepreneur and technologist with 15+ years of experience. He co-founded NetZero in the Spring of 1997, and was its Senior Vice President of Technology.  NetZero which went public in 1999 and from its launch, raised over $400 million; signed multi-million dollar deals with companies such as GM, Qualcomm and Compaq Computers; filed 50 patents (seven of which have been issued so far); acquired over seven companies; serviced over 5 million subscribers; and maintained one of the highest service quality ratings for Internet Service Providers. Mr. Haitsuka also has served as the Chief Information Officer at Jambo, Inc. was a co-founder and Senior Vice President of Layer2Networks, Inc., and was a Partner with IMPACT Software, an International IT consulting firm servicing Fortune 500 companies. He currently serves as the Chief Technology Officer at TuneGo, and is also a Member of the Board of Advisors of Green Plug Inc. Mr. Haitsuka received his B.S. in Computer Science from California State University at Dominguez Hills.
+                </p>
+              </div>
+
+              <div class="small-12 large-6 columns">
+                <h4 class="team_name"> Harold R. MacKenzie</h4>
+                <img src="imgs/bio-harold.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
+                <p class="bio">Harold R. MacKenzie is a longtime technology innovator beginning with his co-founding of NetZero (IPO 1999), where led Software Development and holds eight technology patents related to online advertising and market research systems.  He brings extensive experience in the areas of operations, technology and strategy from his leadership and advisory roles with a diverse range of companies such as: Inventiv Focus (online ad services) Jambo (pay per call innovator), JetEye (search result aggregation and sharing), Jumpcut (online video editing and sharing), Qmania (deal distribution network), Green Plug (digital power innovator) and WebVisible (local online advertising).<br /><br />
+                Mr. MacKenzie maintains hands-on leadership and technical roles while being a parnter in WVP. 
+                </p>
+
+                <div style="margin-top:2em;"> </div>
+
+                <h4 class="team_name"> Trish Burr</h4>
+                <img src="imgs/bio-trish.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
+                <p class="bio">Trish Burr is a Partner at Westlake Venture Partners and currently assists portfolio companies with business planning and human resources services.  Formerly, she was Vice President of Human Resources, at BlackLine Systems (NASDAQ: BL) from early stage through IPO.  During the course of her career she has held various leadership positions with an emphasis on Operations and Human Resources covering both the software and finance industries. She co-founded Impact Software and assisted the founders of NetZero (United Online) with securing early stage funding (seed) and Series A.
+                </p>
+
+              </div>
+            </div>
+
+            <div class="row" id="about" style="padding-top:3.5em;">
+              <h3 class="page-title">About Us</h3>
+              <div class="small-12 large-12 columns">
+                <p> Westlake Venture Partners was established in 2001 to assist young and emerging companies in the growth and success of their business. Created and managed by the original four founders of NetZero, Westlake Venture Partners employs practical and innovative business strategies, as well as capital investments, to help our portfolio companies succeed in achieving their business goals.
+                </p>
+                <p>Utilizing over 50 years of combined business consulting experience and "in the trenches" experience, Westlake Venture Partners can provide the type of practical and "been-there-done-that" knowledge to help young companies navigate their road to success.</p>
+                <p>
+                  <img src="imgs/founders.jpg" alt="" /><br />
+                  <div style="margin-top:-1.7em;font-size:.8em;">NetZero founders at Nasdaq IPO</div>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" id="portfolio" style="padding-top:3.5em;">
+              <h3 class="page-title">Our Portfolio</h3>
+              <div class="large-12 columns show-for-medium-up">
+                <ul id="clients" class="grid">
+                  <li class="tile"><a href="http://www.greenplug.us" target="_blank"> <img src="imgs/clients/portfolio_greenplug.png" alt="Green Plug"></a></li>
+                  <li class="tile"><a href="http://www.qmania.com" target="_blank"> <img src="imgs/clients/portfolio_qmania.png" alt="Qmania"></a></li>
+                  <li class="tile"><a href="http://www.americantruckoutfitters.com" target="_blank"> <img src="imgs/clients/portfolio_ato.png" alt="American Truck Outfitters"></a></li>
+                  <li class="tile"><img src="imgs/clients/portfolio_jambo.png" alt="jambo"></li>
+                  <li class="tile"><a href="http://www.anycomm.com" target="_blank"> <img src="imgs/clients/portfolio_anycomm.png" alt="anyCOMM"></a></li>
+                  <li class="tile"><a href="http://www.integrisfinanical.com" target="_blank"> <img src="imgs/clients/portfolio_integris.png" alt="Integris Financial"></a></li>
+                  <li class="tile"><a href="http://www.napopharma.com" target="_blank"> <img src="imgs/clients/portfolio_napo.png" alt="Napo Pharmaceuticals"></a></li>
+                  <li class="tile"><a href="http://www.lovedaylumber.com" target="_blank"> <img src="imgs/clients/portfolio_loveday.png" alt="Loveday Lumber"></a></li>
+                  <li class="tile"><a href="http://www.jeteye.com" target="_blank"> <img src="imgs/clients/portfolio_jeteye.png" alt="jeteye"></a></li>
+                  <li class="tile"><a href="https://screen.yahoo.com" target="_blank"> <img src="imgs/clients/portfolio_jumpcut.png" alt="jumpcut"></li>
+                  <li class="tile"><img src="imgs/clients/portfolio_eden.png" alt="edentree"></li>
+                  <li class="tile">
+                    <a href="http://www.r30.com" target="_blank"> <img src="imgs/clients/portfolio_r30.png" alt="Radius 30"></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="small-12 columns show-for-small">
+                <ul id="clients" class="grid-sm">
+                  <li class="tile">
+                    <a href="http://www.greenplug.us" target="_blank"> <img src="imgs/clients/portfolio_greenplug.png" alt="Green Plug"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.qmania.com" target="_blank"> <img src="imgs/clients/portfolio_qmania.png" alt="Qmania"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.americantruckoutfitters.com" target="_blank"> <img src="imgs/clients/portfolio_ato.png" alt="American Truck Outfitters"></a>
+                  </li>
+                  <li class="tile">
+                    <img src="imgs/clients/portfolio_jambo.png" alt="jambo">
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.anycomm.com" target="_blank"> <img src="imgs/clients/portfolio_anycomm.png" alt="anyCOMM"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.integrisfinanical.com" target="_blank"> <img src="imgs/clients/portfolio_integris.png" alt="Integris Financial"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.napopharma.com" target="_blank"> <img src="imgs/clients/portfolio_napo.png" alt="Napo Pharmaceuticals"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.lovedaylumber.com" target="_blank"> <img src="imgs/clients/portfolio_loveday.png" alt="Loveday Lumber"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="http://www.jeteye.com" target="_blank"> <img src="imgs/clients/portfolio_jeteye.png" alt="jeteye"></a>
+                  </li>
+                  <li class="tile">
+                    <a href="https://screen.yahoo.com" target="_blank"> <img src="imgs/clients/portfolio_jumpcut.png" alt="jumpcut"></a>
+                  </li>
+                  <li class="tile"><img src="imgs/clients/portfolio_eden.png" alt="edentree"></li>
+                  <li class="tile">
+                    <a href="http://www.r30.com" target="_blank"> <img src="imgs/clients/portfolio_r30.png" alt="Radius 30"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row" id="contact" style="padding-top:3.5em;margin-bottom:3.5em;">
+              <h3 class="page-title">How to Reach Us</h3>
+              <div class="small-12 large-12 columns">
+                <p>Westlake Venture Partners only works with companies referred to us by trusted individuals. We do not accept unsolicited business plans or proposals.  Westlake Venture Partners is not a venture capital firm and does not manage investments for private investors.
+                </p>
+                <p>Please direct any inquiries to: info@westlakevp.com
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-12 columns text-center" style="margin-top:2em;font-size:.8em;">
+                &copy; <script> document.write(new Date().getFullYear()) </script>  Westlake Venture Partners, LP
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+		<div class="large-2 columns">
+    </div>
+	</div>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/foundation/foundation.topbar.js"></script>
+  <script src="js/foundation/foundation.cookie.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script>
+   function jumpTo(section) {
+      $('.menu-icon').trigger('click');
+      if (section == '#home') {
+        $('html, body').animate({scrollTop: $(section).offset().top -150 }, 500);
+      } else {
+        $('html, body').animate({scrollTop: $(section).offset().top}, 500);
+      }
+    }
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41150715-1', 'westlakevp.com');
+  ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
+
    function jumpTo(section) {
       $('.menu-icon').trigger('click');
       if (section == '#home') {
