@@ -1,455 +1,932 @@
 <!DOCTYPE html>
-<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<html lang="en">
 <head>
-	<meta charset="utf-8" />
-  <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0, user-scalable=no" />
-  <meta content="Westlake Venture Partners" name="description" />
-  <title>Westlake Venture Partners</title>
-  <link rel="icon" href="https://www.westlakevp.com/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="https://www.westlakevp.com/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
-  <script src="js/vendor/custom.modernizr.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westlake Venture Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0f14;
+    --paper: #f6f4f0;
+    --warm: #e8e4dd;
+    --accent: #8b7355;
+    --accent-light: #b59d7b;
+    --muted: #6b6560;
+    --light-muted: #9a9490;
+    --white: #ffffff;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
 
-  <script>
-    // When ready...
-    window.addEventListener("load",function() {
-      // Set a timeout...
-      setTimeout(function(){
-        // Hide the address bar!
-        window.scrollTo(0, 1);
-      }, 0);
-    });
-  </script>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <style>
+  html { scroll-behavior: smooth; font-size: 16px; }
+
   body {
-    background: #EC881D;
-    font-family: 'Lora', serif;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  .top-bar {
-    background-color: #2c2c2c;
-  }
-  .top-bar.expanded {
-    background: #2c2c2c;
-  }
-  .top-bar.expanded .title-area {
-    background: #2c2c2c;
-  }
-  .top-bar.expanded .toggle-topbar a {
-    color: #2c2c2c;
-  }
-  .top-bar-section li a:not(.button) {
-    background: #2c2c2c;
-  }
-  .top-bar .toggle-topbar a {
-    font-weight:500;
-  }
-  .top-bar-section ul li > a {
-    font-weight:500;
-  }
-  .top-bar-section ul li.active > a {
-    background: #111111;
-  }
-  .top-bar-section li a:not(.button):hover {
-    background: #111111;
-  }
-  .top-bar.expanded .toggle-topbar a span {
-    -webkit-box-shadow: 0 10px 0 1px #3d3d3d, 0 16px 0 1px #3d3d3d, 0 22px 0 1px #3d3d3d;
-    box-shadow: 0 10px 0 1px #3d3d3d, 0 16px 0 1px #3d3d3d, 0 22px 0 1px #3d3d3d;
-  }
-  .top-bar.expanded .toggle-topbar a {
-    color: #aaaaaa;
-  }
-  .top-bar.expanded .toggle-topbar a span {
-    -webkit-box-shadow: 0 10px 0 1px #aaaaaa, 0 16px 0 1px #aaaaaa, 0 22px 0 1px #aaaaaa;
-    box-shadow: 0 10px 0 1px #aaaaaa, 0 16px 0 1px #aaaaaa, 0 22px 0 1px #aaaaaa;
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+    background: transparent;
   }
 
-  .inline-list ul {
-    list-style-type: circle;
-  }
-  .inline-list > li {
-    float: left;
-    margin-left: 1.375em;
-    margin-right:;
-    width: 10em;
-    list-style-type: circle;
-    display: block;
-  }
-  .inline-list > li > * {
-    display: block;
+  nav.scrolled {
+    background: rgba(246, 244, 240, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1rem 4rem;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
   }
 
-  .page-title {
-    font-family: inherit;
-    color: #EC881D;
-    border-bottom:1px solid #fff;
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
   }
 
-  .team_name {
-    font-family: inherit;
-    color: #EC881D;
+  .nav-logo img {
+    height: 42px;
+    width: auto;
+    transition: height 0.4s ease;
   }
 
-  .bio {
-    font-family: inherit;
-    font-size: .8em;
+  nav.scrolled .nav-logo img {
+    height: 34px;
   }
 
-  .grid {
-    border: 1px solid #6e6e6e;
-    border-bottom: none;
-    border-right: none;
-    overflow: hidden;
-    background-color:rgba(255, 139, 34, 0.65);
+  .nav-logo-text {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
   }
-  .grid li {
-    border-bottom: 1px solid #6e6e6e;
-    border-right: 1px solid #6e6e6e;
-    float: left;
-    overflow: hidden;
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
     position: relative;
-    width: 25%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    padding-left:10px !important;
-  }
-  .ie7 .grid li {
-    width: 19.9%;
-    padding-left:10px !important;
-  }
-  .grid li a {
-    display: block;
-  }
-  .grid img {
-    display: block;
-    height: auto;
-    border:0px !important;
-    width: 100%;
-    opacity: .85;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=65)";
-    filter: alpha(opacity=65);
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-  }
-  .grid li:hover img {
-    opacity: 1;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
   }
 
-  .grid-sm {
-    border: 1px solid #6e6e6e;
-    border-bottom: none;
-    border-right: none;
-    overflow: hidden;
-    background-color:rgba(255, 139, 34, 0.65);
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
   }
-  .grid-sm li {
-    border-bottom: 1px solid #6e6e6e;
-    border-right: 1px solid #6e6e6e;
-    float: left;
-    overflow: hidden;
+
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: all 0.3s;
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 6rem;
     position: relative;
-    width: 33.333%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    padding-left:10px !important;
-  }
-  .ie7 .grid-sm li {
-    width: 26.5%;
-    padding-left:10px !important;
-  }
-  .grid-sm li a {
-    display: block;
-  }
-  .grid-sm img {
-    display: block;
-    height: auto;
-    border:0px !important;
-    width: 100%;
-    opacity: .85;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=65)";
-    filter: alpha(opacity=65);
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-  }
-  .grid-sm li:hover img {
-    opacity: 1;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
+    overflow: hidden;
   }
 
-  #clients li:hover .original_img,  .ie7 #clients li:hover a img, .ie8 #clients li:hover a img {
-    opacity: 1;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,115,85,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
-  #clients li:hover .grayscale_img {
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
     opacity: 0;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-  }
-  #clients .tile:hover, #clients .tile.active {
-    background: #EC881D;
+    animation: fadeUp 0.8s ease 0.3s forwards;
   }
 
-  .container {
-    background: #e8e8e8;
-    padding: 2em 1em;
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    max-width: 900px;
+    color: var(--ink);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
   }
 
-  </style>
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    margin-top: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 4rem;
+    margin-top: 4rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .stat h3 {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .stat p {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    margin-top: 0.25rem;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.1s forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 8rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* === ABOUT === */
+  .about {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+  }
+
+  .about .section-label { color: var(--accent-light); }
+  .about .section-desc { color: rgba(246,244,240,0.6); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .value-item {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(181,157,123,0.3);
+  }
+
+  .value-item h4 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .value-item p {
+    font-size: 0.92rem;
+    color: rgba(246,244,240,0.55);
+    line-height: 1.7;
+  }
+
+  .about-origin {
+    padding: 3rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
+  }
+
+  .about-origin blockquote {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(246,244,240,0.85);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-origin cite {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+  }
+
+  .about-origin .origin-note {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.9rem;
+    color: rgba(246,244,240,0.5);
+    line-height: 1.7;
+  }
+
+  /* === TEAM === */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .team-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 2.5rem 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    cursor: default;
+  }
+
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+  .team-card:hover::before { transform: scaleX(1); }
+
+  .team-card .initials {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .team-card h3 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .team-card .role {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .team-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .team-card .highlight {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.78rem;
+    color: var(--light-muted);
+    font-style: italic;
+  }
+
+  /* === PORTFOLIO === */
+  .portfolio {
+    background: var(--warm);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .portfolio-item {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.04);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+  }
+
+  .portfolio-item.featured {
+    border: 1.5px solid var(--accent);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(181,157,123,0.08) 100%);
+  }
+
+  .portfolio-item.featured .company-name {
+    color: var(--accent);
+  }
+
+  .portfolio-item.featured .company-desc::after {
+    content: ' · Active';
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  }
+
+  .portfolio-item .company-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .portfolio-item .company-link {
+    text-decoration: none;
+  }
+
+  .portfolio-item .company-link .company-name {
+    transition: color 0.3s;
+  }
+
+  .portfolio-item .company-link:hover .company-name {
+    color: var(--accent);
+  }
+
+  .portfolio-item .company-desc {
+    font-size: 0.78rem;
+    color: var(--light-muted);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* === CONTACT === */
+  .contact {
+    text-align: center;
+    padding: 10rem 4rem;
+    position: relative;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--accent-light));
+  }
+
+  .contact .section-title {
+    margin: 0 auto 1.5rem;
+  }
+
+  .contact .section-desc {
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .contact-email {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+  }
+
+  .contact-email::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent-light);
+    transition: background 0.3s;
+  }
+
+  .contact-email:hover { color: var(--ink); }
+  .contact-email:hover::after { background: var(--ink); }
+
+  .contact-note {
+    margin-top: 3rem;
+    font-size: 0.82rem;
+    color: var(--light-muted);
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.78rem;
+    color: var(--light-muted);
+  }
+
+  footer .footer-logo {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* === ANIMATIONS === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === MOBILE === */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(246,244,240,0.98);
+    backdrop-filter: blur(20px);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.active { display: flex; }
+
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover { color: var(--accent); }
+
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.25rem 2rem; }
+    nav.scrolled { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 5rem 2rem; }
+    .hero { padding: 7rem 2rem 5rem; }
+    .hero-stats { gap: 2.5rem; flex-wrap: wrap; }
+    .scroll-indicator { display: none; }
+    .team-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact { padding: 6rem 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="fixed">
 
-    <nav class="top-bar">
-      <ul class="title-area">
-        <div class="row">
-          <div class="small-12 large-12 columns">
-            <li class="name"></li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-          </div>
-        </div>
-      </ul>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="imgs/WVP_Tree.png" alt="Westlake Venture Partners">
+    <span class="nav-logo-text">Westlake VP</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-      <section class="top-bar-section">
-        <ul class="right">
-          <li><a href="#home" onclick="jumpTo('#home');">Home</a></li>
-          <li><a href="#team" onclick="jumpTo('#team');">The Team</a></li>
-          <li><a href="#about" onclick="jumpTo('#about');">About Us</a></li>
-          <li><a href="#portfolio" onclick="jumpTo('#portfolio');">Our Portfolio</a></li>
-          <li><a href="#contact" onclick="jumpTo('#contact');">Contact Us</a></li>
-        </ul>
-      </section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">&times;</button>
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#team" onclick="toggleMenu()">Team</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-    </nav>
-
+<!-- HERO -->
+<section class="hero" id="home">
+  <p class="hero-eyebrow">Family Office · Est. 2001 · Westlake Village, CA</p>
+  <h1>Building great companies alongside <em>exceptional</em> founders</h1>
+  <p class="hero-sub">Westlake Venture Partners is a family office that invests its own capital — alongside a select group of industry pioneers, executives, and founders — in emerging companies with extraordinary potential.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <h3>20+</h3>
+      <p>Years Investing</p>
+    </div>
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Combined Years Experience</p>
+    </div>
+    <div class="stat">
+      <h3>12+</h3>
+      <p>Portfolio Companies</p>
+    </div>
   </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
 
-	<div class="row">
-    <div class="small-12 large-10 columns large-centered">
-      <div class="row container">
-          <div class="small-12 columns">
-<!--            <div class="row hide-for-medium-up" style="margin-bottom:1.5em;"> -->
-            <div class="row" id="home" style="margin-bottom:1.5em;">
-              <div class="small-8 large-4 columns text-left">
-                <img src="imgs/wvp-logo.png" no-border />
-              </div>
-              <div class="small-4 large-8 columns">
-
-              </div>
-            </div>
-
-            <div class="row" id="home">
-              <div class="small-12 large-12 columns">
-                <p> Westlake Venture Partners is a family office that invests in emerging companies.  Depending on the stage of the company and their needs, Westlake Venture Partners will vary the degree to which it takes a hands-on approach.  The principals invest their own capital, alongside a select group of industry pioneers, executives, and founders, all of whom are passionate about building great companies.   We help in a variety of ways, from hands-on management to capital investments.</p>
-                <p>We are invested in your success providing, where necessary:
-                  <div style="padding-left:2em;margin-top:-1em;">
-                    <ul class="disc">
-                      <li>Talent Acquisition and Team Building</li>
-                      <li>Assistance in venture capital and growth financing</li>
-                      <li>Management consulting and advice on:</li>
-                      <li style="list-style:none;padding-left:1em;">
-                        <ul class="inline-list" style="list-style-type:circle;">
-                          <li>Technology Strategy</li>
-                          <li>Product Strategy</li>
-                          <li>Financial Modeling</li>
-                          <li>Business Plan</li>
-                          <li>Customer Acqusition</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </p>
-              </div>
-            </div>
-
-            <div class="row" id="team" style="padding-top:3.5em;">
-              <h3 class="page-title">The Team</h3>
-              <div class="small-12 large-6 columns">
-                <h4 class="team_name"> Ronald T. Burr</h4>
-                <img src="imgs/bio-ron.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
-                <p class="bio">Ronald is an accomplished technology executive with a focus on SaaS, Internet, Interactive Marketing and Digital Media. His perspective on companies is heavily influenced by his software engineering background and further shaped through his experience as an executive in both startups and large enterprises. “I believe the team is everything; People make the company; it’s critical to stay focused on culture and talent. Whether a company is old or young, most problems are ultimately overcome though building the right team”. Mr. Burr is a recognized industry pioneer having co-founded and NetZero (NASDAQ: UNTD) and taken it public with Goldman Sachs.<br /> <br />
-                Mr. Burr maintains active executive leadership roles while being a partner in WVP. Currently he is a General Manager at J2 Global (NASDAQ: JCOM). Over the past decade Mr. Burr has held senior leadership roles as Chief Executive Officer and Chief Product & Technology Officer for leading SaaS comapnies in the telecom and online education sectors.
-                </p>
-
-                <div style="margin-top:2em;"> </div>
-
-                <h4 class="team_name"> Marwan A. Zebian</h4>
-                <img src="imgs/bio-marwan.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
-                <p class="bio">Marwan A. Zebian is a Partner at Westlake Venture Partners. Mr. Zebian is an entrepreneur and technologist with 20+ years of experience. Known to us as “the idea man” and based in Lebanon, Mr. Zebian manages international investments for WVP. His career has spanned roles in many of the worlds largest companies to startups including Bank of America, NetZero, Sempra Energy, Admiral Ship Management and Impact Software. He received his degree in Computer Science from Beirut University.
-                </p>
-
-                <div style="margin-top:2em;"> </div>
-
-                <h4 class="team_name"> Stacy A. Haitsuka</h4>
-                <img src="imgs/bio-stacy.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
-                <p class="bio">Stacy A. Haitsuka is a Partner at Westlake Venture Partners. Mr. Haitsuka is an entrepreneur and technologist with 15+ years of experience. He co-founded NetZero in the Spring of 1997, and was its Senior Vice President of Technology.  NetZero which went public in 1999 and from its launch, raised over $400 million; signed multi-million dollar deals with companies such as GM, Qualcomm and Compaq Computers; filed 50 patents (seven of which have been issued so far); acquired over seven companies; serviced over 5 million subscribers; and maintained one of the highest service quality ratings for Internet Service Providers. Mr. Haitsuka also has served as the Chief Information Officer at Jambo, Inc. was a co-founder and Senior Vice President of Layer2Networks, Inc., and was a Partner with IMPACT Software, an International IT consulting firm servicing Fortune 500 companies. He currently serves as the Chief Technology Officer at TuneGo, and is also a Member of the Board of Advisors of Green Plug Inc. Mr. Haitsuka received his B.S. in Computer Science from California State University at Dominguez Hills.
-                </p>
-              </div>
-
-              <div class="small-12 large-6 columns">
-                <h4 class="team_name"> Harold R. MacKenzie</h4>
-                <img src="imgs/bio-harold.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
-                <p class="bio">Harold R. MacKenzie is a longtime technology innovator beginning with his co-founding of NetZero (IPO 1999), where led Software Development and holds eight technology patents related to online advertising and market research systems.  He brings extensive experience in the areas of operations, technology and strategy from his leadership and advisory roles with a diverse range of companies such as: Inventiv Focus (online ad services) Jambo (pay per call innovator), JetEye (search result aggregation and sharing), Jumpcut (online video editing and sharing), Qmania (deal distribution network), Green Plug (digital power innovator) and WebVisible (local online advertising).<br /><br />
-                Mr. MacKenzie maintains hands-on leadership and technical roles while being a parnter in WVP. 
-                </p>
-
-                <div style="margin-top:2em;"> </div>
-
-                <h4 class="team_name"> Trish Burr</h4>
-                <img src="imgs/bio-trish.png" class="left no_border" alt="" style="margin-top:.7em;margin-right:.7em;" />
-                <p class="bio">Trish Burr is a Partner at Westlake Venture Partners and currently assists portfolio companies with business planning and human resources services.  Formerly, she was Vice President of Human Resources, at BlackLine Systems (NASDAQ: BL) from early stage through IPO.  During the course of her career she has held various leadership positions with an emphasis on Operations and Human Resources covering both the software and finance industries. She co-founded Impact Software and assisted the founders of NetZero (United Online) with securing early stage funding (seed) and Series A.
-                </p>
-
-              </div>
-            </div>
-
-            <div class="row" id="about" style="padding-top:3.5em;">
-              <h3 class="page-title">About Us</h3>
-              <div class="small-12 large-12 columns">
-                <p> Westlake Venture Partners was established in 2001 to assist young and emerging companies in the growth and success of their business. Created and managed by the original four founders of NetZero, Westlake Venture Partners employs practical and innovative business strategies, as well as capital investments, to help our portfolio companies succeed in achieving their business goals.
-                </p>
-                <p>Utilizing over 50 years of combined business consulting experience and "in the trenches" experience, Westlake Venture Partners can provide the type of practical and "been-there-done-that" knowledge to help young companies navigate their road to success.</p>
-                <p>
-                  <img src="imgs/founders.jpg" alt="" /><br />
-                  <div style="margin-top:-1.7em;font-size:.8em;">NetZero founders at Nasdaq IPO</div>
-                </p>
-              </div>
-            </div>
-
-            <div class="row" id="portfolio" style="padding-top:3.5em;">
-              <h3 class="page-title">Our Portfolio</h3>
-              <div class="large-12 columns show-for-medium-up">
-                <ul id="clients" class="grid">
-                  <li class="tile"><a href="http://www.greenplug.us" target="_blank"> <img src="imgs/clients/portfolio_greenplug.png" alt="Green Plug"></a></li>
-                  <li class="tile"><a href="http://www.qmania.com" target="_blank"> <img src="imgs/clients/portfolio_qmania.png" alt="Qmania"></a></li>
-                  <li class="tile"><a href="http://www.americantruckoutfitters.com" target="_blank"> <img src="imgs/clients/portfolio_ato.png" alt="American Truck Outfitters"></a></li>
-                  <li class="tile"><img src="imgs/clients/portfolio_jambo.png" alt="jambo"></li>
-                  <li class="tile"><a href="http://www.anycomm.com" target="_blank"> <img src="imgs/clients/portfolio_anycomm.png" alt="anyCOMM"></a></li>
-                  <li class="tile"><a href="http://www.integrisfinanical.com" target="_blank"> <img src="imgs/clients/portfolio_integris.png" alt="Integris Financial"></a></li>
-                  <li class="tile"><a href="http://www.napopharma.com" target="_blank"> <img src="imgs/clients/portfolio_napo.png" alt="Napo Pharmaceuticals"></a></li>
-                  <li class="tile"><a href="http://www.lovedaylumber.com" target="_blank"> <img src="imgs/clients/portfolio_loveday.png" alt="Loveday Lumber"></a></li>
-                  <li class="tile"><a href="http://www.jeteye.com" target="_blank"> <img src="imgs/clients/portfolio_jeteye.png" alt="jeteye"></a></li>
-                  <li class="tile"><a href="https://screen.yahoo.com" target="_blank"> <img src="imgs/clients/portfolio_jumpcut.png" alt="jumpcut"></li>
-                  <li class="tile"><img src="imgs/clients/portfolio_eden.png" alt="edentree"></li>
-                  <li class="tile">
-                    <a href="http://www.r30.com" target="_blank"> <img src="imgs/clients/portfolio_r30.png" alt="Radius 30"></a>
-                  </li>
-                </ul>
-              </div>
-              <div class="small-12 columns show-for-small">
-                <ul id="clients" class="grid-sm">
-                  <li class="tile">
-                    <a href="http://www.greenplug.us" target="_blank"> <img src="imgs/clients/portfolio_greenplug.png" alt="Green Plug"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.qmania.com" target="_blank"> <img src="imgs/clients/portfolio_qmania.png" alt="Qmania"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.americantruckoutfitters.com" target="_blank"> <img src="imgs/clients/portfolio_ato.png" alt="American Truck Outfitters"></a>
-                  </li>
-                  <li class="tile">
-                    <img src="imgs/clients/portfolio_jambo.png" alt="jambo">
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.anycomm.com" target="_blank"> <img src="imgs/clients/portfolio_anycomm.png" alt="anyCOMM"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.integrisfinanical.com" target="_blank"> <img src="imgs/clients/portfolio_integris.png" alt="Integris Financial"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.napopharma.com" target="_blank"> <img src="imgs/clients/portfolio_napo.png" alt="Napo Pharmaceuticals"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.lovedaylumber.com" target="_blank"> <img src="imgs/clients/portfolio_loveday.png" alt="Loveday Lumber"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="http://www.jeteye.com" target="_blank"> <img src="imgs/clients/portfolio_jeteye.png" alt="jeteye"></a>
-                  </li>
-                  <li class="tile">
-                    <a href="https://screen.yahoo.com" target="_blank"> <img src="imgs/clients/portfolio_jumpcut.png" alt="jumpcut"></a>
-                  </li>
-                  <li class="tile"><img src="imgs/clients/portfolio_eden.png" alt="edentree"></li>
-                  <li class="tile">
-                    <a href="http://www.r30.com" target="_blank"> <img src="imgs/clients/portfolio_r30.png" alt="Radius 30"></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="row" id="contact" style="padding-top:3.5em;margin-bottom:3.5em;">
-              <h3 class="page-title">How to Reach Us</h3>
-              <div class="small-12 large-12 columns">
-                <p>Westlake Venture Partners only works with companies referred to us by trusted individuals. We do not accept unsolicited business plans or proposals.  Westlake Venture Partners is not a venture capital firm and does not manage investments for private investors.
-                </p>
-                <p>Please direct any inquiries to: info@westlakevp.com
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="large-12 columns text-center" style="margin-top:2em;font-size:.8em;">
-                &copy; <script> document.write(new Date().getFullYear()) </script>  Westlake Venture Partners, LP
-              </div>
-            </div>
-
-          </div>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="reveal">
+    <p class="section-label">About Us</p>
+    <h2 class="section-title">Practical wisdom from the trenches</h2>
+    <p class="section-desc">Created and managed by the original four founders of NetZero, we bring real operating experience — not just capital — to every partnership.</p>
+  </div>
+  <div class="about-grid reveal" style="transition-delay: 0.2s;">
+    <div class="about-values">
+      <div class="value-item">
+        <h4>Hands-On Partnership</h4>
+        <p>We vary our involvement based on each company's stage and needs — from strategic advisory to active management roles.</p>
+      </div>
+      <div class="value-item">
+        <h4>Talent & Culture First</h4>
+        <p>We help build teams through talent acquisition, leadership development, and a relentless focus on company culture.</p>
+      </div>
+      <div class="value-item">
+        <h4>Full Spectrum Support</h4>
+        <p>Technology strategy, product roadmaps, financial modeling, business planning, and customer acquisition — we've done it all ourselves.</p>
+      </div>
+      <div class="value-item">
+        <h4>Growth Financing</h4>
+        <p>Assistance in structuring and securing venture capital and growth financing from our extensive network of investors.</p>
       </div>
     </div>
-		<div class="large-2 columns">
+    <div class="about-origin">
+      <blockquote>"People make the company. Whether a company is old or young, most problems are ultimately overcome through building the right team."</blockquote>
+      <cite>— Ronald T. Burr, Managing Partner</cite>
+      <p class="origin-note">Westlake Venture Partners was established in 2001 by the original four co-founders of NetZero (NASDAQ: UNTD), leveraging decades of combined experience taking companies from inception through IPO.</p>
     </div>
-	</div>
+  </div>
+</section>
 
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script src="js/foundation/foundation.topbar.js"></script>
-  <script src="js/foundation/foundation.cookie.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
-  <script>
-   function jumpTo(section) {
-      $('.menu-icon').trigger('click');
-      if (section == '#home') {
-        $('html, body').animate({scrollTop: $(section).offset().top -150 }, 500);
-      } else {
-        $('html, body').animate({scrollTop: $(section).offset().top}, 500);
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="reveal">
+    <p class="section-label">The Team</p>
+    <h2 class="section-title">Founded by operators, not just investors</h2>
+    <p class="section-desc">Our principals have built, scaled, and exited technology companies — giving us a unique perspective on what it takes to succeed.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal" style="transition-delay: 0.1s;">
+      <div class="initials">RB</div>
+      <h3>Ronald T. Burr</h3>
+      <p class="role">Managing Partner</p>
+      <p>Technology executive with deep expertise in SaaS, Internet, Interactive Marketing, and Digital Media. Co-founded NetZero and took it public with Goldman Sachs.</p>
+      <p class="highlight">Former CEO & CPTO for leading SaaS companies in telecom and online education</p>
+    </div>
+    <div class="team-card reveal" style="transition-delay: 0.2s;">
+      <div class="initials">SH</div>
+      <h3>Stacy A. Haitsuka</h3>
+      <p class="role">Partner</p>
+      <p>Entrepreneur and technologist with 15+ years of experience. Co-founded NetZero in 1997, serving as SVP of Technology through its IPO and $400M+ in capital raised.</p>
+      <p class="highlight">Co-founder of Layer2Networks · Former CIO at Jambo · 50+ patents filed</p>
+    </div>
+    <div class="team-card reveal" style="transition-delay: 0.3s;">
+      <div class="initials">HM</div>
+      <h3>Harold R. MacKenzie</h3>
+      <p class="role">Partner</p>
+      <p>Technology innovator and NetZero co-founder. Holds eight patents in online advertising and market research. Extensive experience in operations, technology, and strategy.</p>
+      <p class="highlight">Advisory roles at Inventiv Focus, JetEye, Jumpcut, Qmania, Green Plug & more</p>
+    </div>
+    <div class="team-card reveal" style="transition-delay: 0.4s;">
+      <div class="initials">MZ</div>
+      <h3>Marwan A. Zebian</h3>
+      <p class="role">Partner · International</p>
+      <p>Entrepreneur and technologist with 20+ years of experience. Known as "the idea man," Marwan manages international investments for WVP from Lebanon.</p>
+      <p class="highlight">Career spans Bank of America, NetZero, Sempra Energy & Impact Software</p>
+    </div>
+    <div class="team-card reveal" style="transition-delay: 0.5s;">
+      <div class="initials">TB</div>
+      <h3>Trish Burr</h3>
+      <p class="role">Partner · Operations</p>
+      <p>Assists portfolio companies with business planning and human resources. Former VP of HR at BlackLine Systems (NASDAQ: BL) from early stage through IPO.</p>
+      <p class="highlight">Co-founded Impact Software · Helped secure NetZero's seed & Series A funding</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="reveal">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Companies we've invested in and helped build</h2>
+    <p class="section-desc">From digital power innovation to pharmaceuticals, our investments span industries where technology creates transformative value.</p>
+  </div>
+  <div class="portfolio-grid reveal" style="transition-delay: 0.2s;">
+    <div class="portfolio-item featured">
+      <a href="https://www.jema.ai" target="_blank" class="company-link"><div class="company-name">JEMA</div></a>
+      <div class="company-desc">AI-Powered Career Services</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.rigetti.com/" target="_blank" class="company-link"><div class="company-name">Rigetti</div></a>
+      <div class="company-desc">Quantum Computing</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.macrofab.com/" target="_blank" class="company-link"><div class="company-name">MacroFab</div></a>
+      <div class="company-desc">Electronics Manufacturing</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.energyinnovations.com/" target="_blank" class="company-link"><div class="company-name">Energy Innovations</div></a>
+      <div class="company-desc">Clean Energy Technology</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://adspecs.yahooinc.com/features/video" target="_blank" class="company-link"><div class="company-name">Jumpcut</div></a>
+      <div class="company-desc">Online Video Editing</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://jaguar.health/" target="_blank" class="company-link"><div class="company-name">Napo</div></a>
+      <div class="company-desc">Pharmaceutical Development</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.lovedaylumber.com/" target="_blank" class="company-link"><div class="company-name">Loveday Lumber</div></a>
+      <div class="company-desc">Building Materials</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.netki.com/" target="_blank" class="company-link"><div class="company-name">Netki</div></a>
+      <div class="company-desc">Digital Identity & Compliance</div>
+    </div>
+    <div class="portfolio-item">
+      <a href="https://www.anycomm.com/direct/" target="_blank" class="company-link"><div class="company-name">anyCOMM</div></a>
+      <div class="company-desc">Communications Technology</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">Green Plug</div>
+      <div class="company-desc">Digital Power Innovation</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">Jambo</div>
+      <div class="company-desc">Pay-Per-Call Pioneer</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">Qmania</div>
+      <div class="company-desc">Deal Distribution Network</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">JetEye</div>
+      <div class="company-desc">Search Aggregation & Sharing</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">EdenTree</div>
+      <div class="company-desc">Technology</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">Radius30</div>
+      <div class="company-desc">Technology Services</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">American Truck Outfitters</div>
+      <div class="company-desc">Automotive Accessories</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="company-name">Integris Financial</div>
+      <div class="company-desc">Financial Services</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Let's start a conversation</h2>
+    <p class="section-desc">Westlake Venture Partners works exclusively with companies referred to us by trusted individuals within our network.</p>
+    <a href="mailto:info@westlakevp.com" class="contact-email">info@westlakevp.com</a>
+    <p class="contact-note">We do not accept unsolicited business plans or proposals. Westlake Venture Partners is not a venture capital firm and does not manage investments for private investors.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" style="display:flex;align-items:center;gap:0.6rem;">
+    <img src="imgs/WVP_Tree.png" alt="" style="height:28px;width:auto;">
+    Westlake Venture Partners
+  </div>
+  <div>4607 Lindero Canyon Rd #296, Westlake Village, CA 91361</div>
+  <div>&copy; 2025 Westlake Venture Partners, LP</div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-    }
-  </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-  ga('create', 'UA-41150715-1', 'westlakevp.com');
-  ga('send', 'pageview');
+  revealElements.forEach(el => observer.observe(el));
+</script>
 
-  </script>
 </body>
 </html>
